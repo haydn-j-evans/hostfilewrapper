@@ -5,7 +5,7 @@
 Creates Dnsmasq Wrapper to Include /etc/hosts for DNS resolution for NetworkManager Implementation for ubuntu versions 12.04, 14.02, 16.04, 17.04,  18.04
 
 
-####Background:
+## Background:
 
 For whatever reason, NetworkManager runs its dnsmasq-base implementation with the following hard coded options:
 
@@ -22,7 +22,7 @@ The base code for this behavior can be found here under the file "nm-dnsmasq-man
 
 https://github.com/NetworkManager/NetworkManager/tree/master/src/dnsmasq
 
-####Implemtation
+## Implemtation
 
 This script will rename the dnsmasq binary and then create a bash script in its place, that will call the replaced binary in it, but first stripping out the --no-hosts argument.
 
