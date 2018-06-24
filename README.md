@@ -36,9 +36,9 @@ This idea was taken and expanded from this forum post https://askubuntu.com/ques
 - set the correct file permssions for the script 
 - execute the script 
 
-```console foo@bar:~$ sudo chmod +x hostfilewrapper.sh```
-```console foo@bar:~$ sudo git-clone https://www.github.com/haydn-j-evans/hostfilewrapper```
-```console foo@bar:~$ ./hostfilewrapper.sh```
+	```console foo@bar:~$ sudo chmod +x hostfilewrapper.sh```
+	```console foo@bar:~$ sudo git-clone https://www.github.com/haydn-j-evans/hostfilewrapper```
+	```console foo@bar:~$ ./hostfilewrapper.sh```
 
  
 
