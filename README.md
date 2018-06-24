@@ -68,7 +68,8 @@ EOF
 
 chmod +x /usr/sbin/dnsmasq  
   
-systemctl start NetworkManager```  
+systemctl start NetworkManager  
+```
 
 ##Contact 
 
