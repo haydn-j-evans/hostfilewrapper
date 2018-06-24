@@ -40,7 +40,7 @@ This idea was taken and expanded from this forum post https://askubuntu.com/ques
 	```console foo@bar:~$ sudo chmod +x /var/git/hostfilewrapper/hostfilewrapper.sh```  
 	```console foo@bar:~$ sudo ./hostfilewrapper.sh```  
 
-## Script Contents
+## Script Contents (hostfilewrapper.sh)
 
 ```sh  
   
@@ -71,6 +71,6 @@ chmod +x /usr/sbin/dnsmasq
 systemctl start NetworkManager  
 ```
 
-##Contact 
+## Contact 
 
 Any questions or suggestions, email me at haydn_j_evans@hotmail.com
