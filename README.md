@@ -48,16 +48,16 @@ This idea was taken and expanded from this forum post https://askubuntu.com/ques
   
 systemctl stop NetworkManager  
   
-#The first command copies the dnsmasq binary to "dnsmasq.bin" (basically the same)  
+# The first command copies the dnsmasq binary to "dnsmasq.bin" (basically the same)  
   
 mv /usr/sbin/dnsmasq /usr/sbin/dnsmasq.bin  
   
-#We then create a brand new "dnsmasq" which is actually a bash script we have prepared  
+# We then create a brand new "dnsmasq" which is actually a bash script we have prepared  
 #THIS BASH SCRIPT LOCATION IS HARD CODED TO /var/git/hostfilewrapper  !!!!!!!!  
   
 cp /var/git/hostfilewrapper/dnsmasq > /usr/sbin/dnsmasq   
    
-#Set the correct permissions for the script  
+# Set the correct permissions for the script  
   
 chmod +x /usr/sbin/dnsmasq  
   
@@ -71,7 +71,7 @@ systemctl start NetworkManager
   
 DNSMASQ_BIN="/usr/sbin/dnsmasq.bin"  
   
-# strip --no-hosts switch so /etc/hosts is read  
+# Strip --no-hosts switch so /etc/hosts is read  
   
 DNSMasqParameters=$(echo -n "$@" | sed --regexp-extended "s/ --no-hosts( |$)/ /")  
   

@@ -1,9 +1,17 @@
 #!/bin/bash -e 
 
+# Version 1
+# Haydn Evans
+# 2018
+
+# Create parameters for exec
+
 DNSMASQ_BIN="/usr/sbin/dnsmasq.bin"  
 
-# strip --no-hosts switch so /etc/hosts is read  
+# Strip --no-hosts switch so /etc/hosts is read  
 
 DNSMasqParameters=$(echo -n "$@" | sed --regexp-extended "s/ --no-hosts( |$)/ /")  
+
+# Executes the dnsmasq.bin while stripping the --no-hosts parameter 
 
 exec $DNSMASQ_BIN $DNSMasqParameters  
