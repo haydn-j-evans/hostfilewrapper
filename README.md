@@ -66,16 +66,10 @@ EOF
 
 #Set the correct permissions for the script
 
-chmod +x /usr/sbin/dnsmasq```  
+chmod +x /usr/sbin/dnsmasq  
+  
+systemctl start NetworkManager```  
 
+##Contact 
 
-
-
-
-
- 
-
-
-
-
-
+Any questions or suggestions, email me at haydn_j_evans@hotmail.com
