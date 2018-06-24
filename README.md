@@ -32,8 +32,11 @@ This idea was taken and expanded from this forum post https://askubuntu.com/ques
 
 ## Install instructions
 
-- git-clone this repo onto your system
-- run this script as sudo
+- git-clone this repo onto your system '''sh sudo git-clone https://www.github.com/haydn-j-evans/hostfilewrapper
+- set the correct file permssions for the script '''sh sudo chmod +x hostfilewrapper.sh
+- execute the script ```sh ./hostfilewrapper.sh
+
+ 
 
 
 
