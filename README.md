@@ -52,23 +52,30 @@ systemctl stop NetworkManager
   
 mv /usr/sbin/dnsmasq /usr/sbin/dnsmasq.bin  
   
-#We then create a brand new "dnsmasq" which is actually a bash script  
+#We then create a brand new "dnsmasq" which is actually a bash script we have prepared  
+#THIS BASH SCRIPT LOCATION IS HARD CODED TO /var/git/hostfilewrapper  !!!!!!!!  
   
-bash -c 'cat > /usr/sbin/dnsmasq' << EOF  
-DNSMASQ_BIN="/usr/sbin/dnsmasq.bin"  
+cp /var/git/hostfilewrapper/dnsmasq > /usr/sbin/dnsmasq   
+   
+#Set the correct permissions for the script  
   
-# strip --no-hosts switch so /etc/hosts is read  
-DNSMasqParameters=$(echo -n "$@" | sed --regexp-extended "s/ --no-hosts( |$)/ /")  
-  
-exec $DNSMASQ_BIN $DNSMasqParameters  
-  
-EOF  
-
-#Set the correct permissions for the script
-
 chmod +x /usr/sbin/dnsmasq  
   
 systemctl start NetworkManager  
+```
+## Script Contents (dnsmasq)
+
+```sh  
+  
+#!/bin/bash -e  
+  
+DNSMASQ_BIN="/usr/sbin/dnsmasq.bin"  
+  
+# strip --no-hosts switch so /etc/hosts is read  
+  
+DNSMasqParameters=$(echo -n "$@" | sed --regexp-extended "s/ --no-hosts( |$)/ /")  
+  
+exec $DNSMASQ_BIN $DNSMasqParameters   
 ```
 
 ## Contact 
