@@ -1,4 +1,4 @@
-[TOC]
+
 
 # Hostfilewrapper
 
@@ -27,6 +27,19 @@ https://github.com/NetworkManager/NetworkManager/tree/master/src/dnsmasq
 This script will rename the dnsmasq binary and then create a bash script in its place, that will call the replaced binary in it, but first stripping out the --no-hosts argument.
 
 The script then corrects the permissions needed for the new file created and restarts network manager.
+
+This idea was taken and expanded from this forum post https://askubuntu.com/questions/117899/configure-networkmanagers-dnsmasq-to-use-etc-hosts , credit to kbenoit!
+
+## Install instructions
+
+- git-clone this repo onto your system
+- run this script as sudo
+
+
+
+ 
+
+
 
 
 
