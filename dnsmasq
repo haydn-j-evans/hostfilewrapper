@@ -1,0 +1,9 @@
+#!/bin/bash -e 
+
+DNSMASQ_BIN="/usr/sbin/dnsmasq.bin"  
+
+# strip --no-hosts switch so /etc/hosts is read  
+
+DNSMasqParameters=$(echo -n "$@" | sed --regexp-extended "s/ --no-hosts( |$)/ /")  
+
+exec $DNSMASQ_BIN $DNSMasqParameters  
