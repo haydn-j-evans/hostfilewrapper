@@ -35,12 +35,41 @@ This idea was taken and expanded from this forum post https://askubuntu.com/ques
 - git-clone this repo onto your system 
 - set the correct file permssions for the script 
 - execute the script 
+	
+	```console foo@bar:~$ sudo git-clone https://www.github.com/haydn-j-evans/hostfilewrapper /var/git/hostfilewrapper```  
+	```console foo@bar:~$ sudo chmod +x /var/git/hostfilewrapper/hostfilewrapper.sh```  
+	```console foo@bar:~$ sudo ./hostfilewrapper.sh```  
 
-	```console foo@bar:~$ sudo chmod +x hostfilewrapper.sh```    
-	```console foo@bar:~$ sudo git-clone https://www.github.com/haydn-j-evans/hostfilewrapper```  
-	```console foo@bar:~$ ./hostfilewrapper.sh```  
+## Script Contents
 
- 
+```sh  
+  
+#!/bin/bash -e  
+  
+systemctl stop NetworkManager  
+  
+#The first command copies the dnsmasq binary to "dnsmasq.bin" (basically the same)  
+  
+mv /usr/sbin/dnsmasq /usr/sbin/dnsmasq.bin  
+  
+#We then create a brand new "dnsmasq" which is actually a bash script  
+  
+bash -c 'cat > /usr/sbin/dnsmasq' << EOF  
+DNSMASQ_BIN="/usr/sbin/dnsmasq.bin"  
+  
+# strip --no-hosts switch so /etc/hosts is read  
+DNSMasqParameters=$(echo -n "$@" | sed --regexp-extended "s/ --no-hosts( |$)/ /")  
+  
+exec $DNSMASQ_BIN $DNSMasqParameters  
+  
+EOF  
+
+#Set the correct permissions for the script
+
+chmod +x /usr/sbin/dnsmasq```  
+
+
+
 
 
 
